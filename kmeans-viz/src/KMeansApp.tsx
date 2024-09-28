@@ -13,7 +13,20 @@ const KMeansApp: React.FC = () => {
   const [kmeans, setKMeans] = useState<KMeans | null>(null);
   const [initializationMethod, setInitializationMethod] = useState<InitializationMethod>(InitializationMethod.Random);
   const [k, setK] = useState<number>(3);
-  const [manualCentroids, setManualCentroids] = useState<Centroid[]>([]);
+  const [manualCentroids, setManualCentroids] = useState<Centroid[]>([
+    {
+      x: .13,
+      y: .87
+    },
+    {
+      x: .5,
+      y: .13
+    },
+    {
+      x: .87,
+      y: .87
+    }
+  ]);
   const [centroids, setCentroids] = useState<Centroid[]>([]);
   const [iteration, setIteration] = useState(0);
   const [converged, setConverged] = useState(false);
