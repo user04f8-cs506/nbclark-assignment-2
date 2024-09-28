@@ -41,7 +41,7 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
 }) => {
   return (
     <div className="flex flex-col items-center mb-6">
-      <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-2xl">
+      <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-3xl">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
           <div className="flex items-center space-x-4 mb-4 md:mb-0">
             <label htmlFor="numPoints" className="font-semibold text-gray-700">

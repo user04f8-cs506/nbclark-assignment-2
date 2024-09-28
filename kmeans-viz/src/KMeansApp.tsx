@@ -6,8 +6,9 @@ import Visualization from './components/Visualization';
 import Legend from './components/Legend';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './KmeansApp.css'
 
-const App: React.FC = () => {
+const KMeansApp: React.FC = () => {
   const [points, setPoints] = useState<Point[]>([]);
   const [kmeans, setKMeans] = useState<KMeans | null>(null);
   const [initializationMethod, setInitializationMethod] = useState<InitializationMethod>(InitializationMethod.Random);
@@ -244,4 +245,4 @@ function randomGaussian(mean: number, stdDev: number): number {
   return Math.min(Math.max(num, 0), 1);
 }
 
-export default App;
+export default KMeansApp;
