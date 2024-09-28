@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.centroid {
+  transition: cx 0.5s, cy 0.5s;
+}

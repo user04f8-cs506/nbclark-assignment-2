@@ -1,4 +1,3 @@
-// src/kmeans.ts
 import { Point, Centroid } from './types';
 
 export enum InitializationMethod {
@@ -11,7 +10,7 @@ export enum InitializationMethod {
 export class KMeans {
   private k: number;
   private points: Point[];
-  private centroids: Centroid[];
+  public centroids: Centroid[];
   private initializationMethod: InitializationMethod;
 
   constructor(k: number, points: Point[], initializationMethod: InitializationMethod) {
@@ -33,7 +32,7 @@ export class KMeans {
         this.kMeansPlusPlusInitialization();
         break;
       case InitializationMethod.Manual:
-        // Manual initialization will be handled via user interaction
+        // Centroids are set externally
         break;
       default:
         throw new Error('Unknown initialization method');
@@ -139,9 +138,20 @@ export class KMeans {
     });
   }
 
-  iterate() {
+  hasConverged(oldCentroids: Centroid[], newCentroids: Centroid[]): boolean {
+    for (let i = 0; i < oldCentroids.length; i++) {
+      if (this.euclideanDistance(oldCentroids[i], newCentroids[i]) > 1e-6) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  iterate(): boolean {
+    const oldCentroids = JSON.parse(JSON.stringify(this.centroids));
     this.assignPointsToClusters();
     this.updateCentroids();
+    return this.hasConverged(oldCentroids, this.centroids);
   }
 
   getCentroids(): Centroid[] {
