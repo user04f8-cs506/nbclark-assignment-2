@@ -88,7 +88,7 @@ const KMeansApp: React.FC = () => {
     setPoints(newPoints);
     initializeKMeans();
     setIteration(0);
-    toast.info('New dataset generated.');
+    toast.info('New dataset generated. Hit Reset to reinitialize KMeans.');
   };
 
   const handleStep = () => {
